@@ -3,16 +3,26 @@ package com.mycompany.librarymanagementsystem;
 import java.sql.*;
 
 public class conn {
-    //Connection c;
-    // Statement s;
-    public conn() { 
-        System.out.println("First this");
+
+   
+    public conn() {
+        //System.out.println("First this");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql:///library", "root", "!MySQL99");
-            Statement s = c.createStatement();
-            System.out.println("This happened");
+            Statement st = c.createStatement();
+            // System.out.println("This happened");
 
+            //Used the block below to test connection to table in database
+            /*  String query = "Select * from Account";
+            ResultSet rs = st.executeQuery(query);
+            
+            while(rs.next()){
+                String username = rs.getString("username");
+                System.out.println(username);
+            
+            } 
+            st.close(); */
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -20,6 +30,11 @@ public class conn {
 
     public static void main(String args[]) {
         new conn();
-        System.out.println("Database Connected");
+        //new LoginFrame();
+
+        LoginFrame login = new LoginFrame();
+        login.setVisible(true);
+
+        //System.out.println("Database Connected");
     }
 }
