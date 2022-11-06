@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -33,21 +33,22 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Component id="pinLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPasswordField1" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <Component id="usernameTF" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="libPin" max="32767" attributes="0"/>
+                                  <Component id="jPasswordField1" pref="101" max="32767" attributes="0"/>
+                                  <Component id="usernameTF" pref="101" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="loginBtn" min="-2" pref="72" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="186" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="loginBtn" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="libCheckBox" min="-2" pref="174" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="libCheckBox" min="-2" pref="174" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -71,9 +72,20 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="loginBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="loginBtn" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="libPin" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="pinLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,6 +103,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Librarian signing in?"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="libCheckBoxActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPasswordField1">
     </Component>
@@ -113,6 +128,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBtnActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="libPin">
+    </Component>
+    <Component class="javax.swing.JLabel" name="pinLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Librarian Pin:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
