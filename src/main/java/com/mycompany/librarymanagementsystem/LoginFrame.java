@@ -88,7 +88,7 @@ public class LoginFrame extends javax.swing.JFrame {
                                     .addComponent(usernameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
                                 .addGap(78, 78, 78)
                                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(libCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -117,7 +117,7 @@ public class LoginFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(libPin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pinLabel))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -138,8 +138,11 @@ public class LoginFrame extends javax.swing.JFrame {
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     this.setVisible(false);
+                    
+                    LibrarianMenu lm = new LibrarianMenu();
+                    lm.setVisible(true);
 
-                    JOptionPane.showMessageDialog(null, "Login was successful!");
+                    //JOptionPane.showMessageDialog(null, "Login was successful!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid login");
                 }
