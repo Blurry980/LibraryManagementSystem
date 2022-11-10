@@ -1,5 +1,7 @@
 package com.mycompany.librarymanagementsystem;
 
+import javax.swing.JFrame;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -29,7 +31,7 @@ public class LibrarianMenu extends javax.swing.JFrame {
 
         loginLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        removeBookBtn = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         addBookBtn = new javax.swing.JButton();
 
@@ -46,8 +48,13 @@ public class LibrarianMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 204, 153));
-        jButton5.setText("Remove Book");
+        removeBookBtn.setBackground(new java.awt.Color(0, 204, 153));
+        removeBookBtn.setText("Remove Book");
+        removeBookBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBookBtnActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(102, 204, 255));
         jButton6.setText("Remove Member");
@@ -72,15 +79,14 @@ public class LibrarianMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))
+                        .addGap(186, 186, 186)
+                        .addComponent(addBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(addBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGap(185, 185, 185)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeBookBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -96,7 +102,7 @@ public class LibrarianMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(removeBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,8 +127,24 @@ public class LibrarianMenu extends javax.swing.JFrame {
             AddBook addBook = new AddBook(); 
             this.setVisible(false);
             addBook.setVisible(true);
+            addBook.setResizable(false);
+            //addBook.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            
         }
     }//GEN-LAST:event_addBookBtnActionPerformed
+
+    private void removeBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookBtnActionPerformed
+        // TODO add your handling code here:
+         if(evt.getSource() == removeBookBtn){ 
+            RemoveBook removeBook = new RemoveBook(); 
+            this.setVisible(false);
+            removeBook.setVisible(true);
+            removeBook.setResizable(false);
+                        removeBook.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+         }
+        
+    }//GEN-LAST:event_removeBookBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,8 +185,8 @@ public class LibrarianMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBookBtn;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel loginLabel1;
+    private javax.swing.JButton removeBookBtn;
     // End of variables declaration//GEN-END:variables
 }
