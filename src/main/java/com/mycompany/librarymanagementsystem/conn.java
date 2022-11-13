@@ -37,6 +37,7 @@ public class conn {
 
         LoginFrame login = new LoginFrame();
         login.setVisible(true);
+        login.setResizable(false);
 
         //System.out.println("Database Connected");
     }

@@ -32,7 +32,6 @@ public class LoginFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         loginLabel1 = new javax.swing.JLabel();
-        libCheckBox = new javax.swing.JCheckBox();
         jPasswordField1 = new javax.swing.JPasswordField();
         usernameTF = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -45,13 +44,6 @@ public class LoginFrame extends javax.swing.JFrame {
 
         loginLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         loginLabel1.setText("Library Management System Login");
-
-        libCheckBox.setText("Librarian signing in?");
-        libCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                libCheckBoxActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Username:");
 
@@ -71,35 +63,28 @@ public class LoginFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(loginLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loginLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pinLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(libPin)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                    .addComponent(usernameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                                .addGap(78, 78, 78)
-                                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(libCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pinLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(libPin)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(usernameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                        .addGap(78, 78, 78)
+                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(loginLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(libCheckBox)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -125,7 +110,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        try { 
+        try {
             //does this if loginBtn is clicked
             if (evt.getSource() == loginBtn) {
                 conn con = new conn();
@@ -138,9 +123,10 @@ public class LoginFrame extends javax.swing.JFrame {
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     this.setVisible(false);
-                    
+
                     LibrarianMenu lm = new LibrarianMenu();
                     lm.setVisible(true);
+                    lm.setResizable(false);
 
                     //JOptionPane.showMessageDialog(null, "Login was successful!");
                 } else {
@@ -152,10 +138,6 @@ public class LoginFrame extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_loginBtnActionPerformed
-
-    private void libCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_libCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +180,6 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JCheckBox libCheckBox;
     private javax.swing.JPasswordField libPin;
     private java.awt.Button loginBtn;
     private javax.swing.JLabel loginLabel1;

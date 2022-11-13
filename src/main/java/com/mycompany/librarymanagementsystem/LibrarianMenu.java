@@ -30,9 +30,9 @@ public class LibrarianMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         loginLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        addMemberBtn = new javax.swing.JButton();
         removeBookBtn = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        removeMemberBtn = new javax.swing.JButton();
         addBookBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,11 +40,11 @@ public class LibrarianMenu extends javax.swing.JFrame {
         loginLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         loginLabel1.setText("Librarian Menu");
 
-        jButton4.setBackground(new java.awt.Color(0, 204, 204));
-        jButton4.setText("Add Member");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        addMemberBtn.setBackground(new java.awt.Color(0, 204, 204));
+        addMemberBtn.setText("Add Member");
+        addMemberBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                addMemberBtnActionPerformed(evt);
             }
         });
 
@@ -56,11 +56,11 @@ public class LibrarianMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(102, 204, 255));
-        jButton6.setText("Remove Member");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        removeMemberBtn.setBackground(new java.awt.Color(102, 204, 255));
+        removeMemberBtn.setText("Remove Member");
+        removeMemberBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                removeMemberBtnActionPerformed(evt);
             }
         });
 
@@ -83,11 +83,11 @@ public class LibrarianMenu extends javax.swing.JFrame {
                         .addComponent(addBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(185, 185, 185)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(addMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(removeBookBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(removeMemberBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 238, Short.MAX_VALUE)
@@ -105,56 +105,58 @@ public class LibrarianMenu extends javax.swing.JFrame {
                     .addComponent(removeBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(189, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void addMemberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMemberBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        if(evt.getSource() == addMemberBtn){
+            AddMember addMember = new AddMember();
+            this.setVisible(false);
+            addMember.setVisible(true);
+            addMember.setResizable(false);
+        }
+    }//GEN-LAST:event_addMemberBtnActionPerformed
 
     private void addBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookBtnActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource() == addBookBtn){ 
-            AddBook addBook = new AddBook(); 
+        if(evt.getSource() == addBookBtn){
+            AddBook addBook = new AddBook();
             this.setVisible(false);
             addBook.setVisible(true);
             addBook.setResizable(false);
             //addBook.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            
+
         }
     }//GEN-LAST:event_addBookBtnActionPerformed
 
+    private void removeMemberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMemberBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeMemberBtnActionPerformed
+
     private void removeBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookBtnActionPerformed
         // TODO add your handling code here:
-         if(evt.getSource() == removeBookBtn){ 
-            RemoveBook removeBook = new RemoveBook(); 
+        if(evt.getSource() == removeBookBtn){
+            RemoveBook removeBook = new RemoveBook();
             this.setVisible(false);
             removeBook.setVisible(true);
             removeBook.setResizable(false);
-                        removeBook.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            //removeBook.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-         }
-        
+        }
+
     }//GEN-LAST:event_removeBookBtnActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -163,30 +165,30 @@ public class LibrarianMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LibrarianMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+        //</editor-fold> 
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LibrarianMenu().setVisible(true);
+                new LoginFrame().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBookBtn;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton addMemberBtn;
     private javax.swing.JLabel loginLabel1;
     private javax.swing.JButton removeBookBtn;
+    private javax.swing.JButton removeMemberBtn;
     // End of variables declaration//GEN-END:variables
 }
