@@ -136,7 +136,15 @@ public class LibrarianMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_addBookBtnActionPerformed
 
     private void removeMemberBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMemberBtnActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+         if(evt.getSource() == removeMemberBtn){
+            RemoveMember removeMember = new RemoveMember();
+            this.setVisible(false);
+            removeMember.setVisible(true);
+            removeMember.setResizable(false);
+            //removeBook.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        }
     }//GEN-LAST:event_removeMemberBtnActionPerformed
 
     private void removeBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookBtnActionPerformed
