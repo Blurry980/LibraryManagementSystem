@@ -166,6 +166,7 @@ public class AddMember extends javax.swing.JFrame {
                 firstNameTF.setText("");
                 lastNameTF.setText("");
                 userNameTF.setText("");
+                passwordTF.setText("");
                 ps.close();
 
             }

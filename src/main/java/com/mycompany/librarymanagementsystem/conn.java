@@ -12,7 +12,7 @@ public class conn {
         //System.out.println("First this");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            c = DriverManager.getConnection("jdbc:mysql:///library", "root", "!MySQL99");
+            c = DriverManager.getConnection("jdbc:mysql:///library?allowMultiQueries=true", "root", "!MySQL99");
             st = c.createStatement();
             // System.out.println("This happened");
 

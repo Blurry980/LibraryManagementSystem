@@ -34,6 +34,7 @@ public class LibrarianMenu extends javax.swing.JFrame {
         removeBookBtn = new javax.swing.JButton();
         removeMemberBtn = new javax.swing.JButton();
         addBookBtn = new javax.swing.JButton();
+        checkoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +73,14 @@ public class LibrarianMenu extends javax.swing.JFrame {
             }
         });
 
+        checkoutBtn.setBackground(new java.awt.Color(153, 153, 255));
+        checkoutBtn.setText("Checkout Book");
+        checkoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkoutBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,11 +97,16 @@ public class LibrarianMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(removeBookBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(removeMemberBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 238, Short.MAX_VALUE)
-                .addComponent(loginLabel1)
-                .addGap(239, 239, 239))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(loginLabel1)
+                        .addGap(239, 239, 239))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(checkoutBtn)
+                        .addGap(260, 260, 260))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +121,9 @@ public class LibrarianMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(removeMemberBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(checkoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,6 +176,16 @@ public class LibrarianMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_removeBookBtnActionPerformed
 
+    private void checkoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutBtnActionPerformed
+        // TODO add your handling code here: 
+        if(evt.getSource() == checkoutBtn){
+            CheckoutBook checkout = new CheckoutBook();
+            this.setVisible(false);
+            checkout.setVisible(true);
+            checkout.setResizable(false);
+        }
+    }//GEN-LAST:event_checkoutBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -195,6 +221,7 @@ public class LibrarianMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBookBtn;
     private javax.swing.JButton addMemberBtn;
+    private javax.swing.JButton checkoutBtn;
     private javax.swing.JLabel loginLabel1;
     private javax.swing.JButton removeBookBtn;
     private javax.swing.JButton removeMemberBtn;

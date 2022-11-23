@@ -144,26 +144,31 @@ public class AddBook extends javax.swing.JFrame {
 
         try {
             if (evt.getSource() == addBtn) {
-                System.out.println("in try block");
+                //System.out.println("in try block");
                 conn con = new conn();
-                System.out.println("connection made");
+                //System.out.println("connection made");
                 String query = "insert into books(id, title, author, isbn) values(?,?,?,?)";
-                System.out.println("test3");
+                //System.out.println("test3");
                 PreparedStatement ps = con.c.prepareStatement(query);
                 ps.setString(1, null);
 
                 ps.setString(2, titleTF.getText());
                 ps.setString(3, authorTF.getText());
                 ps.setString(4, isbnTF.getText());
-                System.out.println("test2");
-                ps.execute();
+                // System.out.println("test2");
+                //ps.execute();
+                int i = ps.executeUpdate();
+                //System.out.println(i);
                 //System.out.println(result);
-
-                JOptionPane.showMessageDialog(null, "Book successfully added!");
-                titleTF.setText("");
-                authorTF.setText("");
-                isbnTF.setText("");
-                ps.close();
+                if (i > 0) {
+                    JOptionPane.showMessageDialog(null, "Book successfully added!");
+                    titleTF.setText("");
+                    authorTF.setText("");
+                    isbnTF.setText("");
+                    ps.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to add Book!");
+                }
 
             }
 
