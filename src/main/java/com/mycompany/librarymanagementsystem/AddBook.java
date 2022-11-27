@@ -179,24 +179,31 @@ public class AddBook extends javax.swing.JFrame {
                 String query = "insert into books(id, title, author, isbn) values(?,?,?,?)";
                 //System.out.println("test3");
                 PreparedStatement ps = con.c.prepareStatement(query);
-                ps.setString(1, null);
 
-                ps.setString(2, titleTF.getText());
-                ps.setString(3, authorTF.getText());
-                ps.setString(4, isbnTF.getText());
+                String title = titleTF.getText();
+                String author = authorTF.getText();
+                String isbn = isbnTF.getText();
+
                 // System.out.println("test2");
                 //ps.execute();
-                int i = ps.executeUpdate();
                 //System.out.println(i);
                 //System.out.println(result);
-                if (i > 0) {
+                if (title.isBlank() || author.isBlank() || isbn.isBlank()) {
+                    JOptionPane.showMessageDialog(null, "Failed to add Book! Please fill in all the fields.");
+
+                } else {
+                    ps.setString(1, null);
+
+                    ps.setString(2, title);
+                    ps.setString(3, author);
+                    ps.setString(4, isbn);
+                    int i = ps.executeUpdate();
+
                     JOptionPane.showMessageDialog(null, "Book successfully added!");
                     titleTF.setText("");
                     authorTF.setText("");
                     isbnTF.setText("");
                     ps.close();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Failed to add Book!");
                 }
 
             }
@@ -210,7 +217,7 @@ public class AddBook extends javax.swing.JFrame {
 
     private void viewBooksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksBtnActionPerformed
         // TODO add your handling code here: 
-        if (evt.getSource() == viewBooksBtn) { 
+        if (evt.getSource() == viewBooksBtn) {
             jTable1.setVisible(true);
             try {
                 conn con = new conn();
