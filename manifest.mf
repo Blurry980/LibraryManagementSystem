@@ -4,3 +4,5 @@ Created-By: Apache Maven 3.8.6
 Built-By: jmcoa
 Build-Jdk: 14.0.1
 Main-Class: com.mycompany.librarymanagementsystem.conn
+Class-Path:. C:\mysql_connector_j\mysql-connector-j-8.0.31\mysql-connector-j-8.0.31.jar C:\Users\jmcoa\.m2\repository\com\mysql\mysql-connector-j\8.0.31\mysql-connector-j-8.0.31.jar
+

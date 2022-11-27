@@ -21,6 +21,8 @@ public class AddBook extends javax.swing.JFrame {
      */
     public AddBook() {
         initComponents();
+        jTable1.setVisible(false);
+
     }
 
     /**
@@ -121,8 +123,8 @@ public class AddBook extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addComponent(viewBooksBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(viewBooksBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,11 +140,11 @@ public class AddBook extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(titleTF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(authorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -208,28 +210,28 @@ public class AddBook extends javax.swing.JFrame {
 
     private void viewBooksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksBtnActionPerformed
         // TODO add your handling code here: 
-        if(evt.getSource() == viewBooksBtn){
-            try{
+        if (evt.getSource() == viewBooksBtn) { 
+            jTable1.setVisible(true);
+            try {
                 conn con = new conn();
                 String query = "select * from books";
                 PreparedStatement ps = con.c.prepareStatement(query);
                 ResultSet rs = ps.executeQuery(query);
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"id","title","author","isbn"}, 0);
-                    while(rs.next())
-                    {
-                        String d = rs.getString("id");
-                        String e = rs.getString("title");
-                        String f = rs.getString("author");
-                        String g = rs.getString("isbn");
-                        model.addRow(new Object[]{d, e, f, g});
-                    }
-                    jTable1.setModel(model);
-                
-                while (rs.next()){
+                DefaultTableModel model = new DefaultTableModel(new String[]{"id", "title", "author", "isbn"}, 0);
+                while (rs.next()) {
+                    String d = rs.getString("id");
+                    String e = rs.getString("title");
+                    String f = rs.getString("author");
+                    String g = rs.getString("isbn");
+                    model.addRow(new Object[]{d, e, f, g});
+                }
+                jTable1.setModel(model);
+
+                while (rs.next()) {
                     System.out.println(rs.toString());
                 }
-                
-            } catch (Exception e){
+
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }
