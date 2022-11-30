@@ -13,6 +13,7 @@ com\mycompany\librarymanagementsystem\LibrarianMenu$1.class
 com\mycompany\librarymanagementsystem\RemoveMember$4.class
 com\mycompany\librarymanagementsystem\LibrarianMenu$6.class
 com\mycompany\librarymanagementsystem\LoginFrame.class
+com\mycompany\librarymanagementsystem\RemoveBook$5.class
 com\mycompany\librarymanagementsystem\RemoveMember$2.class
 com\mycompany\librarymanagementsystem\CheckoutBook$4.class
 com\mycompany\librarymanagementsystem\LibrarianMenu.class
