@@ -190,10 +190,10 @@ public class AddBook extends javax.swing.JFrame {
                 //System.out.println(result);
                 if (title.isBlank() || author.isBlank() || isbn.isBlank()) {
                     JOptionPane.showMessageDialog(null, "Failed to add Book! Please fill in all the fields.");
-
+                } else if (isbn.length() != 13 && isbn.length() != 10) {
+                    JOptionPane.showMessageDialog(null, "Failed to add Book! Please use isbn of valid length (numbers only).");
                 } else {
                     ps.setString(1, null);
-
                     ps.setString(2, title);
                     ps.setString(3, author);
                     ps.setString(4, isbn);

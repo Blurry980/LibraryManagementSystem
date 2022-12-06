@@ -39,8 +39,6 @@ public class CheckoutBook extends javax.swing.JFrame {
         CheckoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         memIdTF = new javax.swing.JTextField();
-        dateTF = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         menuBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -59,7 +57,7 @@ public class CheckoutBook extends javax.swing.JFrame {
 
         jLabel2.setText("Book ID:");
 
-        CheckoutBtn.setText("Checkout");
+        CheckoutBtn.setText("Issue Book");
         CheckoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckoutBtnActionPerformed(evt);
@@ -73,14 +71,6 @@ public class CheckoutBook extends javax.swing.JFrame {
                 memIdTFActionPerformed(evt);
             }
         });
-
-        dateTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateTFActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Due Date:");
 
         menuBtn.setText("To Menu");
         menuBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -119,24 +109,19 @@ public class CheckoutBook extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(65, 65, 65)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(memIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dateTF, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(memIdTF))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(7, 7, 7)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel2)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(bookIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGap(7, 7, 7)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(bookIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(83, 83, 83)
                                 .addComponent(viewBooksBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,11 +150,7 @@ public class CheckoutBook extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bookIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(dateTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(viewBooksBtn)
                             .addComponent(CheckoutBtn))
@@ -193,7 +174,7 @@ public class CheckoutBook extends javax.swing.JFrame {
                 ps.setString(1, null);
                 ps.setString(2, memIdTF.getText());
                 ps.setString(3, bookIdTF.getText());
-               // ps.setString(4, dateTF.getText());
+                // ps.setString(4, dateTF.getText());
 
                 ps.execute();
                 ps.close();
@@ -201,14 +182,18 @@ public class CheckoutBook extends javax.swing.JFrame {
                 String query1 = "delete from books where id = ?";
                 PreparedStatement ps1 = con.c.prepareStatement(query1);
                 ps1.setString(1, bookIdTF.getText());
-                ps1.execute();
+                int i = ps1.executeUpdate();
+                //System.out.println(i);
+                if (i == 1) {
+                    JOptionPane.showMessageDialog(null, "Book successfully checked out!");
+                    bookIdTF.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Book could not be checked out!");
 
-                JOptionPane.showMessageDialog(null, "Book successfully checked out!");
-                bookIdTF.setText("");
-
+                }
                 ps1.close();
             } catch (Exception e) {
-                System.out.println(e);
+                JOptionPane.showMessageDialog(null, "Failed to add book\n" +e);
             }
         }
     }//GEN-LAST:event_CheckoutBtnActionPerformed
@@ -221,10 +206,6 @@ public class CheckoutBook extends javax.swing.JFrame {
     private void memIdTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memIdTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_memIdTFActionPerformed
-
-    private void dateTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateTFActionPerformed
 
     private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBtnActionPerformed
         // TODO add your handling code here: 
@@ -301,11 +282,9 @@ public class CheckoutBook extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckoutBtn;
     private javax.swing.JTextField bookIdTF;
-    private javax.swing.JTextField dateTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

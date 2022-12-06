@@ -161,14 +161,19 @@ public class RemoveBook extends javax.swing.JFrame {
                 ps.setString(1, titleTF.getText());
 
                 //System.out.println("test2");
-                ps.execute();
+                int i = ps.executeUpdate();
+                System.out.println(i);
                 //System.out.println(result);
+                if (i != 1) {
+                    JOptionPane.showMessageDialog(null, "Failed to remove book! Please enter valid book id");
 
-                JOptionPane.showMessageDialog(null, "Book successfully removed!");
-                titleTF.setText("");
+                } else {
 
-                ps.close();
+                    JOptionPane.showMessageDialog(null, "Book successfully removed!");
+                    titleTF.setText("");
 
+                    ps.close();
+                }
             }
 
             // con.c.close();
