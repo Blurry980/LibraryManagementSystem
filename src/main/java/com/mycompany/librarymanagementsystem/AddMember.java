@@ -146,9 +146,9 @@ public class AddMember extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             if (evt.getSource() == addBtn) {
-                System.out.println("in try block");
+               // System.out.println("in try block");
                 conn con = new conn();
-                System.out.println("connection made");
+                //System.out.println("connection made");
                 String query = "insert into members(id, first_name, last_name, username, password) values(?,?,?,?,?)";
                 System.out.println("test3");
                 PreparedStatement ps = con.c.prepareStatement(query);
@@ -158,7 +158,7 @@ public class AddMember extends javax.swing.JFrame {
                 ps.setString(4, userNameTF.getText());
                 ps.setString(5, passwordTF.getText());
 
-                System.out.println("test2");
+                //System.out.println("test2");
                 ps.execute();
                 //System.out.println(result);
 

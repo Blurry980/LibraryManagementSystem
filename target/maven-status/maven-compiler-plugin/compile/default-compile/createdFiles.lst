@@ -6,6 +6,7 @@ com\mycompany\librarymanagementsystem\RemoveBook$4.class
 com\mycompany\librarymanagementsystem\CheckoutBook$1.class
 com\mycompany\librarymanagementsystem\RemoveBook$2.class
 com\mycompany\librarymanagementsystem\AddBook$3.class
+com\mycompany\librarymanagementsystem\RemoveMember$5.class
 com\mycompany\librarymanagementsystem\CheckoutBook.class
 com\mycompany\librarymanagementsystem\LibrarianMenu$3.class
 com\mycompany\librarymanagementsystem\AddMember$1.class
